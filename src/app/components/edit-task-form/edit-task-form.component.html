@@ -1,0 +1,7 @@
+<form *ngIf="showEditTask" class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="text">Edit task</label>
+        <input type="text" class="text" name="text" placeholder="Edit task..." [(ngModel)]="text">
+        <input type="submit" value="Save" class="btn btn-block">
+    </div>
+</form>

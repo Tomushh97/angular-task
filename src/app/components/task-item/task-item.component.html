@@ -1,0 +1,18 @@
+<div [ngClass]="{reminder: task.reminder}" class="task" (dblclick)="onToggle(task)">
+    <h3>
+        {{task.text}}
+        <div><app-button (btnClick)="onToggleEdit(task)" style="margin: 20px"
+    color="gray"
+    text="Edit"
+    ></app-button>
+        <fa-icon 
+        (click)="onDelete(task)"
+        [ngStyle]="{'color':'red'}" 
+        [icon] = "faTimes"
+        ></fa-icon>
+    </div></h3>
+    <p>
+        {{task.day}}
+    </p>
+<app-edit-task-form (onEditTask)="showEditTask"></app-edit-task-form>
+</div>

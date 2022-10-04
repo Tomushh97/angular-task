@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "text": "raz raz",
+      "day": "2022-09-15",
+      "reminder": false,
+      "id": 6
+    },
+    {
+      "text": "nowe",
+      "day": "2022-09-29",
+      "reminder": true,
+      "id": 7
+    }
+  ]
+}
