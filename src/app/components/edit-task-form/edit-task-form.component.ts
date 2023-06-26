@@ -15,23 +15,31 @@ export class EditTaskFormComponent implements OnInit {
   day: string;
   reminder: boolean;
   showEditTask: boolean;
+  selectedTask: Task | null;
   subscriptionEdit: Subscription;
+
   constructor(private uiService: UiService) {
-    this.subscriptionEdit = this.uiService
-      .onToggleEdit()
-      .subscribe((value) => (this.showEditTask = value));
+    this.subscriptionEdit = this.uiService.onToggleEdit$.subscribe(
+      (selectedTask) => {
+        this.selectedTask = selectedTask;
+        this.showEditTask = this.selectedTask !== null;
+      }
+    );
   }
+
   ngOnInit(): void {}
   onSubmit() {
     if (!this.text) {
       return;
     }
     const editedTask = {
+      ...this.task,
       text: (this.task.text = this.text),
       day: this.day,
       reminder: this.reminder,
     };
     this.onEditTask.emit(editedTask);
     this.text = '';
+    this.showEditTask = false;
   }
 }

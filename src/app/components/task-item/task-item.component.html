@@ -1,7 +1,7 @@
 <div [ngClass]="{reminder: task.reminder}" class="task" (dblclick)="onToggle(task)">
     <h3>
         {{task.text}}
-        <div><app-button (btnClick)="onToggleEdit(task)" style="margin: 20px"
+        <div><app-button (btnClick)="onToggleEditForm(task)" style="margin: 20px"
     color="gray"
     text="Edit"
     ></app-button>
@@ -14,5 +14,5 @@
     <p>
         {{task.day}}
     </p>
-<app-edit-task-form (onEditTask)="showEditTask"></app-edit-task-form>
+<app-edit-task-form (onEditTask)="showEditTask" [task]="task"></app-edit-task-form>
 </div>

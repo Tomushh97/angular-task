@@ -18,13 +18,12 @@ export class TasksComponent implements OnInit {
     //osobny obiekt, nie array więc bez []
     this.taskService.deleteTask(task).subscribe(
       //to jest jak then
-      () => (this.tasks = this.tasks.filter((t) => t.id !== task.id)) // !filtruje taski które NIE są o id które usuwamy
+      () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
     );
   }
   toggleReminder(task: Task) {
-    //!tutaj to jest to co po '=' w task.component.html  (onToggleReminder)="toggleReminder(task)"
     task.reminder = !task.reminder;
-    this.taskService.updateTaskReminder(task).subscribe(); //!wykonanie metody z service która obsługuje aktualizowanie w bazie rekordów
+    this.taskService.updateTaskReminder(task).subscribe();
   }
   addTask(task: Task) {
     this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
